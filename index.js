@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
+require('dotenv').config();
+require('./libs/dbConnect');
 
 const app = express();
 
@@ -9,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
-    res.render('index', { message: 'Hello From Node.js' });
+    res.render('index', { message: 'Hello From Node.js with partials' });
 });
 
 app.get('/contact', (req, res) => {
