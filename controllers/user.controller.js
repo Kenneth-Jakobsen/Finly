@@ -1,4 +1,4 @@
-const User = ('../libs/models/user.model');
+const User = ('./libs/models/user.model');
 
 const createUser = async(req, res)=>{
     await User.create({

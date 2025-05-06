@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const userRouter = require('./routes/user.route');
 
 require('dotenv').config();
 require('./libs/dbConnect');
@@ -22,9 +23,12 @@ app.get('/about', (req, res) => {
     res.render('index', { message: 'The About Page' });
 });
 
+app.use('/users', userRouter);
+
 app.use('',(req,res)=>{
     res.status(404).send('Not found');
 });
+
 
 const PORT = 3000;
 
