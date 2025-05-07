@@ -1,4 +1,4 @@
-const User = ('./libs/models/user.model');
+const User = require('../libs/models/user.model');
 
 const createUser = async(req, res)=>{
     await User.create({
@@ -11,14 +11,14 @@ const createUser = async(req, res)=>{
 
 const getUser = async(req,res)=>{
     await User.findOne({email:'ken@mail.com'});
-
-    res.render('user', {message:'User Retrieved', user:user});
+    res.render('user', {message:'User Retrieved', user:User});
 };
 
 const deleteUser = async(req,res)=>{
     await User.findOneAndDelete({email:'ken@mail.com'});
     res.render('user', {message:'User Deleted', user:null});
 };
+
 
 module.exports={
     getUser,
